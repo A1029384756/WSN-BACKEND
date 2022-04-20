@@ -19,7 +19,7 @@ void setup()
 {
     pinMode(THERMISTOR_ENABLE, OUTPUT);
     pinMode(THERMISTOR_PIN, INPUT);
-
+    
     Serial.begin(9600);
     bleDevice.begin(9600);
 
@@ -85,7 +85,7 @@ double getTemp()
 
 void floatToArray(double &temperature)
 {
-    uint16_t value = temperature * 100;
+    int16_t value = temperature * 100;
     
     transmission[0] = value >> 8;
     transmission[1] = (uint8_t)value;
